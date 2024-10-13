@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Joc</string>
+    <string name="results">Puntuació</string>
+    <string name="tornar">Tornar al principi</string>
+</resources>

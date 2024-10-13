@@ -1,0 +1,59 @@
+HomeRoom (al manifest he de ficar homeroom en comptes de activity_main)
+
+class BenvingudaActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.homeroom)
+
+        // Inicialitza només elements de la pantalla de benvinguda
+        val buttonNext = findViewById<Button>(R.id.buttonNext)
+        buttonNext.setOnClickListener {
+            // Navega cap a MainActivity
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
+    }
+}
+
+
+--------------------------------------
+
+Activity_main
+
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var tvQuestion: TextView
+    private lateinit var answerImage1: ImageView
+    private lateinit var answerButton1: Button
+    private lateinit var answerImage2: ImageView
+    private lateinit var answerButton2: Button
+    private lateinit var answerImage3: ImageView
+    private lateinit var answerButton3: Button
+    private lateinit var answerImage4: ImageView
+    private lateinit var answerButton4: Button
+    private lateinit var tvTimer: TextView
+    private lateinit var tornarPrincipi: Button
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)  // Usa el layout correcte aquí
+
+        // Inicialitza elements del layout 'activity_main.xml'
+        tvQuestion = findViewById(R.id.tv_question)
+        answerImage1 = findViewById(R.id.answerImage1)
+        answerButton1 = findViewById(R.id.answerButton1)
+        answerImage2 = findViewById(R.id.answerImage2)
+        answerButton2 = findViewById(R.id.answerButton2)
+        answerImage3 = findViewById(R.id.answerImage3)
+        answerButton3 = findViewById(R.id.answerButton3)
+        answerImage4 = findViewById(R.id.answerImage4)
+        answerButton4 = findViewById(R.id.answerButton4)
+        tornarPrincipi = findViewById(R.id.tornarprincipi)
+        tvTimer = findViewById(R.id.tvTimer)
+
+        // Continua amb la lògica de l'activitat
+        loadQuestions()
+        startTimer()
+        showQuestion(0)
+    }
+}
